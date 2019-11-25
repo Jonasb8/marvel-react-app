@@ -13,9 +13,9 @@ const App = () => {
   useEffect(() => {
     const fetchheroes = async () => {
       setLoading(true);
-      const res = await axios.get('http://localhost:5000/heroes',);
+      const res = await axios.get('http://localhost:5000/heroes');
       setHeroes(res.data.characters);
-      setLoading(false);
+      setLoading(false)
     };
 
     fetchheroes();
@@ -32,12 +32,16 @@ const App = () => {
   return (
     <div className='container mt-5'>
       <h1 className='text-primary mb-3'>Avenger candidates</h1>
-      <Heroes heroes={currentheroes} loading={loading} />
+      <Heroes
+        heroes={currentheroes}
+        loading={loading}
+      />
       <Pagination
         heroesPerPage={heroesPerPage}
         totalHeroes={heroes.length}
         paginate={paginate}
       />
+
     </div>
   );
 };
